@@ -16,7 +16,7 @@ function main() {
   }
 
   function areaTriangle(v1, v2) {
-    return 0.5 * Vector3.cross(v1, v2).magnitude();
+    return Vector3.cross(v1, v2).magnitude() / 2;
   }
 
   function drawVector(v, color) {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 1: Painting</title>
+  </head>
+
+  <body onload="main()">
+    <link rel="stylesheet" href="./asg1.css">
+    <div class="display">
+      <div class="canvas-display" style="grid-area: canvas-box">
+        <canvas id="webgl" width="600" height="600">
+          Please use a browser that supports "canvas"
+        </canvas>
+      </div>
+      <div class="edit-display" style="grid-area: edit-box">
+        <button id="clear-button">[✖] clear</button><div class="divider"></div>
+        <button id="undo-button">[↶] undo</button><div class="divider"></div>
+        <button id="redo-button">[↷] redo</button><div class="divider"></div>
+        <button id="sakamoto-button">[😺] sakamoto!</button>
+      </div>
+      <div class="shape-display" style="grid-area: shapes-box">
+        <button id="point-button">Point</button>
+        <button id="triangle-button">Triangle</button>
+        <button id="circle-button">Circle</button>
+      </div>
+      <div class="slider-display" style="grid-area: slider-box">
+        Red: <input type="range" id="red-range" name="red" min="0" max="255" value="0"><div class="divider"></div>
+        Blue: <input type="range" id="green-range" name="green" min="0" max="255" step="1" value="0"><div class="divider"></div>
+        Green: <input type="range" id="blue-range" name="blue" min="0" max="255" step="1" value="0"><div class="divider"></div>
+        Alpha: <input type="range" id="alpha-range" name="blue" min="0" max="100" step="1" value="0"><div class="divider"></div>
+        Size: <input type="range" id="size-range" name="size" min="5" max="50" step="5"><div class="divider"></div>
+        Segments (Circle): <input type="range" id="segment-range" name="segment" min="10" max="100" step="5" value="0"><div class="divider"></div>
+        Current Color: <div class="color-preview" id="color-preview"><div class="color-preview-bg" id="color-preview-bg"></div></div>
+      </div>
+    </div>
+
+    <br><h3>Notes to Grader:</h3>
+    hi again! if you want to see the drawn picture, click the "sakamoto" button, which generates a painting of sakamoto from nichijou.
+    for the awesomeness part of the assignment, i decided to improve on the base drawing platform. i first redid the layout and ui of
+    the everything using css. then, i added an undo and redo functionality that just stores the user's actions on two different stacks,
+    which are accessed whenever the user undos or redos an action. i also added an alpha slider, which is a slider that controls the
+    alpha/transparency/opacity of the brush. lastly, i added a color preview so the user can see what color their sliders are making.
+
+    <script src="./lib/webgl/webgl-utils.js"></script>
+    <script src="./lib/webgl/webgl-debug.js"></script>
+    <script src="./lib/webgl/cuon-utils.js"></script>
+
+    <script src="./lib/Point.js"></script>
+    <script src="./lib/Triangle.js"></script>
+    <script src="./lib/Circle.js"></script>
+    <script src="./lib/CustomTriangle.js"></script>
+    <script src="./lib/DrawSakamoto.js"></script>
+    <script src="./asg1.js"></script>
+  </body>
+</html>
