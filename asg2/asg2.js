@@ -27,7 +27,9 @@ const FSHADER_SOURCE = `
 
 let canvas, gl, a_Position, u_FragColor, u_ModelMatrix, u_GlobalRotateMatrix, u_ViewMatrix, u_ProjectionMatrix;
 
-let g_rotY = 0,
+let g_cameraAngle = 0,
+    g_headJointAngle = 0,
+    g_rotY = 0,
     g_rotX = 0,
     g_bodyAngle = 0,
     g_legAngle = 0,
@@ -38,10 +40,12 @@ let g_rotY = 0,
     g_isDragging = false;
 
 let fpsIndicator,
-    lastMouseX,
-    lastMouseY,
     animationOnButton,
-    animationOffButton;
+    animationOffButton,
+    cameraSlider,
+    headSlider,
+    lastMouseX,
+    lastMouseY;
 
 // ----------------------------------- //
 // ---                             --- //
@@ -129,6 +133,16 @@ function connectVariablesToGLSL() {
 }
 
 function addUIActions() {
+  cameraSlider = document.getElementById("camera-range");
+  cameraSlider.addEventListener("mousedown", () => {
+    g_cameraAngle = Number(cameraSlider.value);
+  });
+
+  headSlider = document.getElementById("joint-range");
+  headSlider.addEventListener("mousedown", () => {
+    g_headJointAngle = Number(headSlider.value);
+  });
+
   animationOnButton = document.getElementById("animation-on-button");
   animationOnButton.addEventListener("mousedown", () => { g_walkAnimation = true; });
 
@@ -179,7 +193,7 @@ function renderAllShapes() {
   head.matrix = new Matrix4(bodyMatrix);
   head.matrix.scale(2.25, 2.25, 2.25);
   head.matrix.translate(0.0, 0.1, 0.05);
-  head.matrix.rotate(g_headAngle, 0, 0, 1);
+  head.matrix.rotate(g_headAngle - g_headJointAngle, 0, 0, 1);
   head.render();
 
   let leftEar = new Cone();
@@ -447,7 +461,7 @@ function cameraControls() {
   let globalRotMat = new Matrix4();
   globalRotMat
     .rotate(g_rotX, 1.0, 0.0, 0.0)
-    .rotate(g_rotY, 0.0, 1.0, 0.0);
+    .rotate(g_rotY + g_cameraAngle, 0.0, 1.0, 0.0);
   gl.uniformMatrix4fv(u_GlobalRotateMatrix, false, globalRotMat.elements);
 }
 
@@ -457,6 +471,7 @@ function updateAnimations() {
     g_bodyAngle = 5 * Math.cos(g_seconds);
   }
   if (g_headAngleAmp > 0) {
+    g_headJointAngle = 0;
     g_headAngle = 4 * g_headAngleAmp * Math.cos(g_seconds);
     if (!(g_seconds % 1)) {
       g_headAngleAmp--;
