@@ -134,12 +134,12 @@ function connectVariablesToGLSL() {
 
 function addUIActions() {
   cameraSlider = document.getElementById("camera-range");
-  cameraSlider.addEventListener("mousedown", () => {
+  cameraSlider.addEventListener("input", () => {
     g_cameraAngle = Number(cameraSlider.value);
   });
 
   headSlider = document.getElementById("joint-range");
-  headSlider.addEventListener("mousedown", () => {
+  headSlider.addEventListener("input", () => {
     g_headJointAngle = Number(headSlider.value);
   });
 
