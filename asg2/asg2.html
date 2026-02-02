@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 2: Blocky 3D Animal</title>
+  </head>
+
+  <body onload="main()">
+    <div class="canvas-display" style="grid-area: canvas-box">
+      <canvas id="webgl" width="750" height="750">
+        Please use a browser that supports "canvas"
+      </canvas>
+    </div>
+    <p>FPS = <span id="fps-span">0</span>
+    <p>ANIMATION BUTTONS <button type="button" id="animation-on-button">ON</button>
+    <button type="button" id="animation-off-button">OFF</button>
+
+    <script src="./lib/webgl/webgl-utils.js"></script>
+    <script src="./lib/webgl/webgl-debug.js"></script>
+    <script src="./lib/webgl/cuon-utils.js"></script>
+    <script src="./lib/webgl/cuon-matrix.js"></script>
+
+    <script src="./lib/Triangle.js"></script>
+    <script src="./lib/Cube.js"></script>
+    <script src="./lib/Cone.js"></script>
+    <script src="./lib/Cylinder.js"></script>
+    <script src="./lib/Sphere.js"></script>
+    <script src="./lib/Hemisphere.js"></script>
+    <script src="./asg2.js"></script>
+  </body>
+</html>

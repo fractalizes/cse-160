@@ -1,5 +1,5 @@
 // originally DrawTriangle.js (c) 2012 matsuda
-// repurposed for CSE 140 Spring 2026 Quarter
+// repurposed for CSE 160 Spring 2026 Quarter
 // https://canvas.ucsc.edu/courses/88811/assignments/798365
 
 function main() {
