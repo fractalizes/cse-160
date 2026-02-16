@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 3: Creating a Virtual World</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body onload="main()">
+    <div id="page-wrapper">
+      <div class="canvas-display" style="grid-area: canvas-box">
+        <canvas id="webgl" width="800" height="600">
+          Please use a browser that supports "canvas"
+        </canvas>
+        <div id="fps-counter">
+          <p><b><i>FPS = <span id="fps-span">0</span></i></b></p>
+        </div>
+        <div id="gold-counter">
+          <p><b>GOLD: <span id="gold-span">0</span> / 8</b></p>
+        </div>
+        <div id="hotbar"></div>
+        <div id="hotbar-selector"></div>
+        <div id="hotbar-items"></div>
+        <div id="crosshair">+</div>
+      </div>
+    </div>
+    <div class="notes">
+      <h1><i>notes to grader:</i></h1>
+      <h4>
+        your goal in this game is to find all the gold blocks inside the world by breaking the blocks underneath you. there are a total of eight gold blocks in the world and there is a counter at the top right to help you keep track of how many you found
+      </h4>
+      <h2>controls:</h2>
+      <h4>
+        <ul>
+          <li>click the game with [LMB] to begin, [ESC] to exit</li>
+          <li>[LMB] break block</li>
+          <li>[RMB] place block</li>
+          <li>[WASD] move forward, left, backward, right</li>
+          <li>[1-9] select block to place down (hotbar)</li>
+        </ul>
+      </h4>
+    </div>
+
+    <script src="./lib/webgl/webgl-utils.js"></script>
+    <script src="./lib/webgl/webgl-debug.js"></script>
+    <script src="./lib/webgl/cuon-utils.js"></script>
+    <script src="./lib/webgl/cuon-matrix.js"></script>
+
+    <script src="./lib/Hotbar.js"></script>
+    <script src="./lib/Camera.js"></script>
+    <script src="./lib/World.js"></script>
+    <script src="./lib/Triangle.js"></script>
+    <script src="./lib/Cube.js"></script>
+    <script src="./asg3.js"></script>
+  </body>
+</html>

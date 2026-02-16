@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#page-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas-display {
+  position: relative;
+  width: fit-content;
+}
+
+#webgl {
+  display: block;
+  border-radius: 5px;
+}
+
+#crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -475%);
+  pointer-events: none;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: bold;
+}
+
+#fps-counter {
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  font-size: 15px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 15px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+#gold-counter {
+  position: absolute;
+  top: 5%;
+  left: 64%;
+  font-size: 15px;
+  color: yellow;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 15px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+#hotbar {
+  position: absolute;
+  transform: translate(7.5%, -110%);
+  scale: 75%;
+}
+
+#hotbar-selector {
+  position: absolute;
+  transform: translate(1085%, -120%);
+  scale: 65%;
+}
+
+#hotbar-items {
+  display: flex;
+  gap: 131px;
+  position: absolute;
+  transform: translate(-10500px, -1275px);
+  scale: 14%;
+}
+
+#notes {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
