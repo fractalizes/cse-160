@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 4: Lighting</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body onload="main()">
+    <div id="page-wrapper">
+      <div class="canvas-display" style="grid-area: canvas-box">
+        <canvas id="webgl" width="800" height="600">
+          Please use a browser that supports "canvas"
+        </canvas>
+        <div id="fps-counter">
+          <p><b><i>FPS = <span id="fps-span">0</span></i></b></p>
+        </div>
+        <button type="button" id="normal-button">
+          <b>NORMALS: <span id="normal-span">OFF</span></b>
+        </button>
+        <button type="button" id="lighting-button">
+          <b>LIGHTING: <span id="lighting-span">ON</span></b>
+        </button>
+        <div id="light-pos-sliders">
+          <label for="light-x-slider">Light: X Pos</label><input type="range" id="light-x-slider" name="light-x-slider" min="0" max="32" value="16">
+          <label for="light-y-slider">Light: Y Pos</label><input type="range" id="light-y-slider" name="light-y-slider" min="0" max="32" value="16">
+          <label for="light-z-slider">Light: Z Pos</label><input type="range" id="light-z-slider" name="light-z-slider" min="0" max="32" value="16">
+        </div>
+        <div id="crosshair">+</div>
+      </div>
+    </div>
+    <div class="notes">
+    </div>
+
+    <script src="./lib/webgl/cuon-matrix.js"></script>
+    <script src="./lib/webgl/cuon-utils.js"></script>
+    <script src="./lib/webgl/webgl-debug.js"></script>
+    <script src="./lib/webgl/webgl-utils.js"></script>
+
+    <script src="./lib/Camera.js"></script>
+    <script src="./lib/Cube.js"></script>
+    <script src="./lib/Model.js"></script>
+    <script src="./lib/Sphere.js"></script>
+    <script src="./lib/Triangle.js"></script>
+    <script src="./lib/World.js"></script>
+
+    <script src="./asg4.js"></script>
+  </body>
+</html>

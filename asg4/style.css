@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#page-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas-display {
+  position: relative;
+  width: fit-content;
+}
+
+#webgl {
+  display: block;
+  border-radius: 5px;
+}
+
+#crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: bold;
+}
+
+#fps-counter {
+  position: absolute;
+  transform: translate(20%, -1000%);
+  font-size: 15px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 15px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+#normal-button {
+  position: absolute;
+  transform: translate(0%, 25%);
+  font-size: 15px;
+  color: rgb(255, 123, 123);
+  border-color: white;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+#lighting-button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-165%, 25%);
+  font-size: 15px;
+  color: rgb(50, 255, 94);
+  border-color: white;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+#light-pos-sliders {
+  position: absolute;
+  display: grid;
+  transform: translate(425%, -385%);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 15px 15px;
+  border-radius: 8px;
+}
+
+#notes {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
