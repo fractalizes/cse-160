@@ -137,12 +137,12 @@ function main() {
     scene.add(dirLight);
     raveLights.push(dirLight);
 
-    const pointLight = new THREE.SpotLight(color, intensity);
-    pointLight.rotation.set(0, 0.25, 0.25);
-    pointLight.position.set(-1, 2, 4);
-    pointLight.castShadow = true;
-    scene.add(pointLight);
-    raveLights.push(pointLight);
+    const spotLight = new THREE.SpotLight(color, intensity);
+    spotLight.rotation.set(0, 0.25, 0.25);
+    spotLight.position.set(-1, 2, 4);
+    spotLight.castShadow = true;
+    scene.add(spotLight);
+    raveLights.push(spotLight);
 
     const d = 10;
     dirLight.shadow.camera.left = -d;
@@ -160,26 +160,26 @@ function main() {
       "rgb(255, 0, 173)",
     ];
 
-    const spot = new THREE.SpotLight(spotColors[i], 20);
-    spot.position.set(
+    const point = new THREE.PointLight(spotColors[i], 20);
+    point.position.set(
       Math.cos(i * Math.PI / 2) * 6,
       6,
       Math.sin(i * Math.PI / 2) * 6
     );
-    spot.angle = Math.PI / 6;
-    spot.penumbra = 0.5;
-    spot.decay = 2;
-    spot.distance = 30;
-    spot.castShadow = true;
+    point.angle = Math.PI / 6;
+    point.penumbra = 0.5;
+    point.decay = 2;
+    point.distance = 30;
+    point.castShadow = true;
 
     const target = new THREE.Object3D();
     target.position.set(0, 0, 1);
     scene.add(target);
 
-    spot.target = target;
-    scene.add(spot);
+    point.target = target;
+    scene.add(point);
 
-    spotLights.push(spot);
+    spotLights.push(point);
     targets.push(target);
 
     const coneGeometry = new THREE.ConeGeometry(1.5, 8, 32, 1, true);
@@ -191,7 +191,7 @@ function main() {
     });
 
     const beam = new THREE.Mesh(coneGeometry, coneMaterial);
-    beam.position.copy(spot.position);
+    beam.position.copy(point.position);
     beam.rotation.x = Math.PI;
     scene.add(beam);
     beams.push(beam);
